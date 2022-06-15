@@ -2,6 +2,8 @@ desperate_measures = {
 	radical_solution = {
 		icon = GFX_decision_icon_eagle
 		available = {
+			surrender_progress > 0.1
+			has_war = yes
 		}
 		fire_only_once = yes
 		visible = {
@@ -12,9 +14,9 @@ desperate_measures = {
 		cost = 5
 		complete_effect = {
 			add_dynamic_modifier = { modifier = oro }
-		} 
-		hidden_effect = {
-			set_variable = { readiness = 0}
+				hidden_effect = {
+				set_variable = { readiness = 0}
+			}
 		}
 	}
 }
@@ -122,11 +124,22 @@ desperate_measures_tree = {
 		}
 		cost = 5
 		complete_effect = {
-			replace_civ_with_arms_factories = yes	
-			replace_civ_with_arms_factories = yes
-			replace_civ_with_arms_factories = yes
+			every_controlled_state = {
+				limit = {
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 		} 
-	}		
+	}
 	everything_for_victory = {
 		icon = GFX_decision_icon_eagle
 		available = {
@@ -170,7 +183,13 @@ desperate_measures_tree = {
 			add_timed_idea = {
 				idea = idea_full_mobilisation
 				days = 180
-			} 
+			}
+			add_ideas = {
+				scraping_the_barrel
+			}
+			add_ideas = {
+				tot_economic_mobilisation
+			}
 		} 
 	}	
 	peoples_front = {

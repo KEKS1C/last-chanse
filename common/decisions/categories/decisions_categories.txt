@@ -6,9 +6,7 @@ desperate_measures = {
 		is_ai = no
 	}
 	visible = {
-		ROOT = {
-			is_ai = no			
-		}
+		surrender_progress > 0.05
 	}
 }
 desperate_measures_two = {
