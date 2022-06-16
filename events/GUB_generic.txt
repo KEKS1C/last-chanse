@@ -1,0 +1,26 @@
+
+add_namespace = GUB_generic
+
+country_event = {
+	id = GUB_generic.1
+	title = GUB_generic.1.t
+	desc = GUB_generic.1.d
+	picture = GFX_world_reznya
+	
+	is_triggered_only = no
+	
+	trigger = {
+		check_variable = {
+			food_shortage > 0.01
+		}
+	}
+	mean_time_to_happen = { days = 0 }
+	
+	option = {
+		name = GUB_generic.1.a
+	    ai_chance = {
+			factor = 1
+		}
+		add_dynamic_modifier = { modifier = dynamic_modifier_food_shortages }
+	}
+}

@@ -14,9 +14,10 @@ desperate_measures = {
 		cost = 5
 		complete_effect = {
 			add_dynamic_modifier = { modifier = oro }
-				hidden_effect = {
+			hidden_effect = {
 				set_variable = { readiness = 0}
 				set_variable = { additional_mobilisation = 0.1 }
+				set_variable = { food_shortage = 0.00 }
 				clamp_variable = {
 					var = additional_mobilisation
 					min = 0.0
@@ -184,6 +185,7 @@ desperate_measures_tree = {
 		}
 		cost = 5
 		complete_effect = {
+			add_to_variable = { food_shortage = 0.10 }
 			if = {
 				limit = {
 					NOT = {
@@ -208,8 +210,8 @@ desperate_measures_tree = {
 			else = {
 				hidden_effect = {
 					add_manpower = 1
-					add_to_variable = { additional_mobilisation = 0.05}
 				}	
+				add_to_variable = { additional_mobilisation = 0.05}	
 			}
 			
 			if = {
@@ -225,8 +227,8 @@ desperate_measures_tree = {
 			else = {
 				hidden_effect = {
 					add_manpower = 1
-					add_to_variable = { additional_mobilisation = 0.05}
-				}
+				}	
+				add_to_variable = { additional_mobilisation = 0.05}
 			}
 		}
 	}

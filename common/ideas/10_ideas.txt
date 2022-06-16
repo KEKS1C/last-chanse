@@ -30,6 +30,7 @@ ideas = {
 			}
 			picture = FRA_factory_strikes
 			modifier = {
+				the_burden_on_the_economy_modificator = 0.15
 				production_factory_efficiency_gain_factor = 0.5 
 				production_factory_max_efficiency_factor = 0.5 
 				production_lack_of_resource_penalty_factor = -0.5 

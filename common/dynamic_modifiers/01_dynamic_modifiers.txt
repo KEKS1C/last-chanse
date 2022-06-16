@@ -15,3 +15,15 @@ dynamic_modifier_full_mobilisation = {
 
 	conscription = additional_mobilisation
 }
+dynamic_modifier_food_shortages = {
+	remove_trigger = {
+		check_variable = {
+			food_shortage < 0.0
+		}
+	}
+	icon = GFX_idea_GUB_food_shortages
+	
+	food_shortage_modifier = food_shortage
+	monthly_population = -0.5
+	conscription = 0.1
+}
