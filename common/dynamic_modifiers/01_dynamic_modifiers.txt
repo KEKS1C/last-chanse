@@ -24,6 +24,14 @@ dynamic_modifier_food_shortages = {
 	icon = GFX_idea_GUB_food_shortages
 	
 	food_shortage_modifier = food_shortage
-	monthly_population = -0.5
-	conscription = 0.1
+	monthly_population = population_grown_famine_effect
+	army_attack_factor = combat_famine_effect
+	army_defence_factor = combat_famine_effect
+	stability_factor = powers_famine_effect
+	stability_factor = powers_famine_effect
+	war_support_factor = powers_famine_effect
+	production_speed_buildings_factor = population_construction_famine_effect
+	production_speed_buildings_factor = construction_famine_effect
+	industrial_capacity_factory = production_famine_effect
+	industrial_capacity_dockyard = production_famine_effect
 }
