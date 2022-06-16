@@ -11,7 +11,7 @@ dynamic_modifier_full_mobilisation = {
 	remove_trigger = { 
 		has_war = no
 	}
-	icon = vittoria_mutilata
+	icon = GFX_idea_vittoria_mutilata
 
 	conscription = additional_mobilisation
 }
