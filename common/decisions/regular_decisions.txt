@@ -16,6 +16,7 @@ desperate_measures = {
 			add_dynamic_modifier = { modifier = oro }
 				hidden_effect = {
 				set_variable = { readiness = 0}
+				set_variable = { additional_mobilisation = 0.1 }
 			}
 		}
 	}
@@ -95,9 +96,7 @@ desperate_measures_two = {
 		}
 		fire_only_once = yes
 		visible = {
-			ROOT = {
-				is_ai = no
-			}
+			is_ai = no
 			has_dynamic_modifier = { modifier = oro }
 		}
 		cost = 5
@@ -180,18 +179,45 @@ desperate_measures_tree = {
 		}
 		cost = 5
 		complete_effect = {
-			add_timed_idea = {
-				idea = idea_full_mobilisation
-				days = 180
+			if = {
+				limit = {
+					NOT = {
+						has_idea = idea_full_mobilisation
+					}
+				}	
+				add_ideas = {
+					idea = idea_full_mobilisation
+				}
+			}	
+			if = {
+				limit = {
+					NOT = {
+						has_idea = scraping_the_barrel
+					}
+				}
+				add_ideas = {
+					scraping_the_barrel
+				}
 			}
-			add_ideas = {
-				scraping_the_barrel
+			else = {
+				add_to_variable = { additional_mobilisation = 0.05}
 			}
-			add_ideas = {
-				tot_economic_mobilisation
+			
+			if = {
+				limit = {
+					NOT = {
+						has_idea = tot_economic_mobilisation
+					}
+				}
+				add_ideas = {
+					tot_economic_mobilisation
+				}
 			}
-		} 
-	}	
+			else = {
+				add_to_variable = { additional_mobilisation = 0.05}
+			}
+		}
+	}
 	peoples_front = {
 		icon = GFX_decision_icon_eagle
 		available = {

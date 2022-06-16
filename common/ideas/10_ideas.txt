@@ -7,7 +7,7 @@ ideas = {
 			}
 			picture = vittoria_mutilata
 			modifier = {
-				conscription = 0.6
+				conscription = additional_mobilisation
 			}
 		}
 		idea_peoples_front = {
