@@ -30,7 +30,7 @@
  cheapen_everything_desc:0 "Удешевим всё что можно чтобы произвести, как можно больше"
  gas_storm:0 "Газовая атака"
  gas_storm_desc:0 "Газ накроет всех кто окажется в его радиусе и не кому не удастся сбежать"
- idea_full_mobilisation:0 "Всеобщая мобилизация"
+ dynamic_modifier_full_mobilisation:0 "Всеобщая мобилизация"
  idea_peoples_front:0 "Народный фронт"
  idea_zagrad_detachments:0 "Заградотряды"
  idea_cheapen_everything:0 "Удешевление всего"

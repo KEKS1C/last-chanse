@@ -17,6 +17,11 @@ desperate_measures = {
 				hidden_effect = {
 				set_variable = { readiness = 0}
 				set_variable = { additional_mobilisation = 0.1 }
+				clamp_variable = {
+					var = additional_mobilisation
+					min = 0.0
+					max = 0.7
+				}
 			}
 		}
 	}
@@ -168,7 +173,7 @@ desperate_measures_tree = {
 		available = {
 		}
 		fire_only_once = no
-		days_re_enable = 360
+		days_re_enable = 120
 		visible = {
 			ROOT = {
 				is_ai = no
@@ -182,13 +187,14 @@ desperate_measures_tree = {
 			if = {
 				limit = {
 					NOT = {
-						has_idea = idea_full_mobilisation
+						has_dynamic_modifier = {
+							modifier = dynamic_modifier_full_mobilisation
+							scope = ROOT
+						}
 					}
 				}	
-				add_ideas = {
-					idea = idea_full_mobilisation
-				}
-			}	
+				add_dynamic_modifier = { modifier = dynamic_modifier_full_mobilisation }
+			}
 			if = {
 				limit = {
 					NOT = {

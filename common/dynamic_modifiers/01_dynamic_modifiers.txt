@@ -7,3 +7,11 @@ oro = {
 	
 	icon = GFX_idea_GUB_rules_above_gg
 }
+dynamic_modifier_full_mobilisation = {
+	remove_trigger = { 
+		has_war = no
+	}
+	icon = vittoria_mutilata
+
+	conscription = additional_mobilisation
+}
