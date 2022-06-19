@@ -36,7 +36,9 @@ desperate_measures_two = {
 		icon = GFX_decision_icon_eagle
 		days_mission_timeout = 50
 		activation = {
-			resistance > 90
+			check_variable = {
+				resistance > 90
+			}
 		}
 		available = {
 			check_variable = {
