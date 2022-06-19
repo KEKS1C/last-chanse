@@ -12,7 +12,7 @@ desperate_measures = {
 desperate_measures_two = {
 	priority = 10
 	icon = GFX_decision_icon_2
-	
+	picture = GFX_decision_stage_two	
 	allowed = {
 		is_ai = no
 	}
@@ -41,7 +41,7 @@ desperate_measures_tree = {
 			is_ai = no			
 		}
 		check_variable = {
-			readiness = 100
+			faith_of_the_people > 100
 		}
 	}
 }

@@ -48,5 +48,16 @@ ideas = {
 				army_attack_factor = 1
 			}
 		}
+		idea_purges = {
+			removal_cost = -1		
+			allowed = {
+				always = yes
+			}
+			picture = FRA_factory_strikes
+			modifier = {
+				production_factory_efficiency_gain_factor = -0.15
+				production_factory_max_efficiency_factor = -0.15
+			}
+		}
 	}
 }

@@ -13,11 +13,15 @@ desperate_measures = {
 		}
 		cost = 5
 		complete_effect = {
-			add_dynamic_modifier = { modifier = oro }
 			hidden_effect = {
+			    set_variable = { oro = 1}
 				set_variable = { readiness = 0}
 				set_variable = { additional_mobilisation = 0.1 }
 				set_variable = { food_shortage = 0.00 }
+				set_variable = {
+					resistance = 0
+					faith_of_the_people = 0
+				}
 				clamp_variable = {
 					var = additional_mobilisation
 					min = 0.0
@@ -28,87 +32,263 @@ desperate_measures = {
 	}
 }
 desperate_measures_two = {
-	agitation_for_young_people = {
+	resistance_warning = {
+		icon = GFX_decision_icon_eagle
+		days_mission_timeout = 50
+		activation = {
+			resistance > 90
+		}
+		available = {
+			check_variable = {
+				faith_of_the_people > 100
+			}
+		}
+		fire_only_once = yes
+		visible = {
+			check_variable = {
+				resistance > 90
+			}
+		}
+		timeout_effect = {
+			hidden_effect = {
+				random_other_country = {
+					limit = {
+						NOT = { has_government = ROOT }
+					}
+					set_temp_variable = { save_party = highest_party_ideology@exclude_ruling_party }
+				}
+			}	
+			start_civil_war = {
+				ideology = save_party
+				size = 0.3
+			}
+		}
+		complete_effect = {
+		}		
+	}
+	propaganda = {
 		icon = GFX_decision_icon_eagle
 		available = {
 		}
-		fire_only_once = yes
+		fire_only_once = no
+		days_re_enable = 30		
 		visible = {
 			ROOT = {
 				is_ai = no
 			}
-			has_dynamic_modifier = { modifier = oro }
+			check_variable = {
+				oro = 1
+			}
+			NOT = {
+				check_variable = {
+					faith_of_the_people > 100
+					resistance > 100
+				}
+			}
 		}
 		cost = 5
 		complete_effect = {
-			add_to_variable = { readiness = 20}
-			add_stability = -0.1
+			add_to_variable = { faith_of_the_people = 5 }	
+			custom_effect_tooltip = FFF_propaganda
 		} 
 	}	
-	making_a_speech = {
+	hold_parade = {
 		icon = GFX_decision_icon_eagle
 		available = {
 		}
-		fire_only_once = yes
+		fire_only_once = no
+		days_re_enable = 30	
 		visible = {
 			ROOT = {
 				is_ai = no
 			}
-			has_dynamic_modifier = { modifier = oro }
+			check_variable = {
+				oro = 1
+			}
+			NOT = {
+				check_variable = {
+					faith_of_the_people > 100
+					resistance > 100
+				}
+			}
 		}
 		cost = 5
 		complete_effect = {
-			add_to_variable = { readiness = 20}
-			add_stability = -0.1
+			add_to_variable = { faith_of_the_people = 10 }	
+			add_to_variable = { resistance = 10 }
+			custom_effect_tooltip = FFF_hold_parade			
 		} 
 	}	
-	glorification_of_heroes = {
+	diplomatic_scandal = {
 		icon = GFX_decision_icon_eagle
 		available = {
 		}
-		fire_only_once = yes
+		fire_only_once = no
+		days_re_enable = 30	
 		visible = {
 			ROOT = {
 				is_ai = no
 			}
-			has_dynamic_modifier = { modifier = oro }
+			check_variable = {
+				oro = 1
+			}
+			NOT = {
+				check_variable = {
+					faith_of_the_people > 100
+					resistance > 100
+				}
+			}
 		}
 		cost = 5
 		complete_effect = {
-			add_to_variable = { readiness = 20}
-			add_stability = -0.1
+			add_to_variable = { faith_of_the_people = 15 }	
+			add_to_variable = { resistance = 20 }
+			custom_effect_tooltip = FFF_diplomatic_scandal
+			random_neighbor_country = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = bad_friend
+				}
+			}
 		} 
 	}	
-	the_suggestion_of_truth = {
+	purge_among_the_generals = {
 		icon = GFX_decision_icon_eagle
 		available = {
 		}
-		fire_only_once = yes
+		fire_only_once = no
+		days_re_enable = 30	
 		visible = {
 			ROOT = {
 				is_ai = no
 			}
-			has_dynamic_modifier = { modifier = oro }
+			check_variable = {
+				oro = 1
+			}
+			NOT = {
+				check_variable = {
+					faith_of_the_people > 100
+					resistance > 100
+				}
+			}
 		}
 		cost = 5
 		complete_effect = {
-			add_to_variable = { readiness = 20}
-			add_stability = -0.1
+			add_to_variable = { resistance = -15 }
+			custom_effect_tooltip = FFF_purge_among_the_generals
+			hidden_effect = {
+				random_unit_leader = {
+					remove_unit_leader_role = yes
+				}	
+			}	
 		} 
-	}	
-	arrange_a_diplomatic_scandal = {
+	}
+	purge_among_the_people = {
 		icon = GFX_decision_icon_eagle
 		available = {
 		}
-		fire_only_once = yes
+		fire_only_once = no
+		days_re_enable = 30	
 		visible = {
-			is_ai = no
-			has_dynamic_modifier = { modifier = oro }
+			ROOT = {
+				is_ai = no
+			}
+			check_variable = {
+				oro = 1
+			}
+			NOT = {
+				check_variable = {
+					faith_of_the_people > 100
+					resistance > 100
+				}
+			}
 		}
 		cost = 5
 		complete_effect = {
-			add_to_variable = { readiness = 20}
-			add_stability = -0.1
+			add_to_variable = { resistance = -10 }
+			every_controlled_state = {
+				set_variable =
+			custom_effect_tooltip = FFF_purge_among_the_people		
+			add_timed_idea = {
+				idea = idea_purges
+				days = 80
+			} 
+		} 
+	}
+	arm_the_crowd = {
+		icon = GFX_decision_icon_eagle
+		available = {
+		}
+		fire_only_once = no
+		days_re_enable = 30	
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+			check_variable = {
+				oro = 1
+			}
+			NOT = {
+				check_variable = {
+					faith_of_the_people > 100
+					resistance > 100
+				}
+			}
+		}
+		cost = 5
+		complete_effect = {
+			custom_effect_tooltip = FFF_arm_the_crowd	
+		} 
+	}
+	construction_teams = {
+		icon = GFX_decision_icon_eagle
+		available = {
+		}
+		fire_only_once = no
+		days_re_enable = 30	
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+			check_variable = {
+				oro = 1
+			}
+			NOT = {
+				check_variable = {
+					faith_of_the_people > 100
+					resistance > 100
+				}
+			}
+		}
+		cost = 5
+		complete_effect = {
+			custom_effect_tooltip = FFF_construction_teams
+			
+		} 
+	}
+	blame_the_opposition = {
+		icon = GFX_decision_icon_eagle
+		available = {
+		}
+		fire_only_once = no
+		days_re_enable = 30	
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+			check_variable = {
+				oro = 1
+			}
+			NOT = {
+				check_variable = {
+					faith_of_the_people > 100
+					resistance > 100
+				}
+			}
+		}
+		cost = 5
+		complete_effect = {
+			FFF_blame_the_opposition
 		} 
 	}
 }

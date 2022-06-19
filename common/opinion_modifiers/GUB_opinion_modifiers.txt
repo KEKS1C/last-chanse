@@ -1,0 +1,9 @@
+opinion_modifiers = {
+
+	bad_friend = {
+		value = -20
+		months = 8
+		decay = 5
+		trade = no
+	}
+}

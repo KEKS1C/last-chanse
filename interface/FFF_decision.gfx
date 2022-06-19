@@ -1,0 +1,23 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_decision_category_flame_city"
+		texturefile = "gfx/interface/decision/decision_category_flame_city.dds"
+	}	
+	spriteType = {
+		name = "GFX_decision_stage_two"
+		texturefile = "gfx/interface/decision/decision_stage_two.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_icon_eagle"
+		texturefile = "gfx/interface/decision/decision_icon_eagle.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_icon_1"
+		texturefile = "gfx/interface/decision/decision_icon_1.dds"
+	}	
+	spriteType = {
+		name = "GFX_decision_icon_2"
+		texturefile = "gfx/interface/decision/decision_icon_2.dds"
+	}	
+}
