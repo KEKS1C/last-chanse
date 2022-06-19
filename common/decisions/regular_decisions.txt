@@ -14,6 +14,7 @@ desperate_measures = {
 		cost = 5
 		complete_effect = {
 			hidden_effect = {
+				add_dynamic_modifier = { modifier = oro }
 			    set_variable = { oro = 1}
 				set_variable = { readiness = 0}
 				set_variable = { additional_mobilisation = 0.1 }
@@ -61,7 +62,7 @@ desperate_measures_two = {
 				}
 			}	
 			start_civil_war = {
-				ideology = save_party
+				ideology = var:save_party
 				size = 0.3
 			}
 		}
@@ -209,13 +210,16 @@ desperate_measures_two = {
 		complete_effect = {
 			add_to_variable = { resistance = -10 }
 			every_controlled_state = {
-				set_variable =
+				set_temp_variable = { killed_population = state_population_k }
+				multiply_temp_variable = { killed_population = 5 }
+				add_manpower = killed_population
+			}	
 			custom_effect_tooltip = FFF_purge_among_the_people		
 			add_timed_idea = {
 				idea = idea_purges
 				days = 80
 			} 
-		} 
+		}
 	}
 	arm_the_crowd = {
 		icon = GFX_decision_icon_eagle
@@ -224,15 +228,15 @@ desperate_measures_two = {
 		fire_only_once = no
 		days_re_enable = 30	
 		visible = {
-			ROOT = {
-				is_ai = no
-			}
+			is_ai = no
 			check_variable = {
 				oro = 1
 			}
 			NOT = {
 				check_variable = {
 					faith_of_the_people > 100
+				}
+				check_variable = {
 					resistance > 100
 				}
 			}
@@ -258,6 +262,8 @@ desperate_measures_two = {
 			NOT = {
 				check_variable = {
 					faith_of_the_people > 100
+				}
+				check_variable = {
 					resistance > 100
 				}
 			}
@@ -265,7 +271,6 @@ desperate_measures_two = {
 		cost = 5
 		complete_effect = {
 			custom_effect_tooltip = FFF_construction_teams
-			
 		} 
 	}
 	blame_the_opposition = {
@@ -290,8 +295,8 @@ desperate_measures_two = {
 		}
 		cost = 5
 		complete_effect = {
-			FFF_blame_the_opposition
-		} 
+			custom_effect_tooltip = FFF_blame_the_opposition
+		}
 	}
 }
 desperate_measures_tree = {
