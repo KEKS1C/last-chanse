@@ -13,6 +13,12 @@ country_event = {
 		check_variable = {
 			food_shortage > 0.01
 		}
+		NOT = {
+			has_dynamic_modifier = {
+				modifier = dynamic_modifier_food_shortages
+				scope = ROOT
+			}
+		}
 	}
 	mean_time_to_happen = { days = 0 }
 	

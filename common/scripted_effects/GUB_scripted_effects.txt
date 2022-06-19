@@ -85,3 +85,11 @@ update_famine_effects = {
 		value = combat_famine_effect_temp
 	}
 }
+update_minimum_famine = {
+
+	clamp_variable = {
+		var = food_shortage_modifier
+		min = modifier@the_burden_on_the_economy_modificator
+		max = 300.0
+	}
+}

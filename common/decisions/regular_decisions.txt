@@ -161,6 +161,9 @@ desperate_measures_tree = {
 		}
 		cost = 5
 		complete_effect = {
+			custom_effect_tooltip = food_shortage_005
+			add_to_variable = { food_shortage = 0.05 }
+			update_famine_effects = yes
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
 				amount = 10000
@@ -185,7 +188,9 @@ desperate_measures_tree = {
 		}
 		cost = 5
 		complete_effect = {
+			custom_effect_tooltip = food_shortage_010
 			add_to_variable = { food_shortage = 0.10 }
+			update_famine_effects = yes
 			if = {
 				limit = {
 					NOT = {
@@ -297,6 +302,10 @@ desperate_measures_tree = {
 				idea = idea_cheapen_everything
 				days = 180
 			}
+			update_minimum_famine = yes
+			custom_effect_tooltip = food_shortage_010
+			add_to_variable = { food_shortage = 0.10 } 
+			update_famine_effects = yes
 		} 
 	}
 	gas_storm = {
