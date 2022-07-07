@@ -69,7 +69,36 @@ desperate_measures_two = {
 		complete_effect = {
 		}		
 	}
-	propaganda = {
+	
+	readiness_of_people = {
+		icon = GFX_decision_icon_eagle
+		available = {
+		}
+		fire_only_once = no
+		days_re_enable = 15	
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+			check_variable = {
+				oro = 1
+			}
+			NOT = {
+				check_variable = {
+					faith_of_the_people > 100
+					resistance > 100
+				}
+			}
+		}
+		cost = 5
+		complete_effect = {
+			add_to_variable = { faith_of_the_people = 20 }	
+			add_to_variable = { resistance = 40 }	
+			custom_effect_tooltip = FFF_readiness_of_people
+		} 
+	}	
+	
+	find_and_destroy = {
 		icon = GFX_decision_icon_eagle
 		available = {
 		}
@@ -91,70 +120,15 @@ desperate_measures_two = {
 		}
 		cost = 5
 		complete_effect = {
-			add_to_variable = { faith_of_the_people = 5 }	
-			custom_effect_tooltip = FFF_propaganda
+			add_to_variable = { resistance = -10 }	
+			add_timed_idea = {
+				idea = idea_purges
+				days = 40
+			} 
+			custom_effect_tooltip = FFF_find_and_destroy
 		} 
-	}	
-	hold_parade = {
-		icon = GFX_decision_icon_eagle
-		available = {
-		}
-		fire_only_once = no
-		days_re_enable = 30	
-		visible = {
-			ROOT = {
-				is_ai = no
-			}
-			check_variable = {
-				oro = 1
-			}
-			NOT = {
-				check_variable = {
-					faith_of_the_people > 100
-					resistance > 100
-				}
-			}
-		}
-		cost = 5
-		complete_effect = {
-			add_to_variable = { faith_of_the_people = 10 }	
-			add_to_variable = { resistance = 10 }
-			custom_effect_tooltip = FFF_hold_parade			
-		} 
-	}	
-	diplomatic_scandal = {
-		icon = GFX_decision_icon_eagle
-		available = {
-		}
-		fire_only_once = no
-		days_re_enable = 30	
-		visible = {
-			ROOT = {
-				is_ai = no
-			}
-			check_variable = {
-				oro = 1
-			}
-			NOT = {
-				check_variable = {
-					faith_of_the_people > 100
-					resistance > 100
-				}
-			}
-		}
-		cost = 5
-		complete_effect = {
-			add_to_variable = { faith_of_the_people = 15 }	
-			add_to_variable = { resistance = 20 }
-			custom_effect_tooltip = FFF_diplomatic_scandal
-			random_neighbor_country = {
-				add_opinion_modifier = {
-					target = ROOT
-					modifier = bad_friend
-				}
-			}
-		} 
-	}	
+	}
+	
 	purge_among_the_generals = {
 		icon = GFX_decision_icon_eagle
 		available = {
@@ -177,7 +151,7 @@ desperate_measures_two = {
 		}
 		cost = 5
 		complete_effect = {
-			add_to_variable = { resistance = -15 }
+			add_to_variable = { resistance = -20 }
 			custom_effect_tooltip = FFF_purge_among_the_generals
 			hidden_effect = {
 				random_unit_leader = {
@@ -186,6 +160,7 @@ desperate_measures_two = {
 			}	
 		} 
 	}
+	
 	purge_among_the_people = {
 		icon = GFX_decision_icon_eagle
 		available = {
@@ -219,83 +194,6 @@ desperate_measures_two = {
 				idea = idea_purges
 				days = 80
 			} 
-		}
-	}
-	arm_the_crowd = {
-		icon = GFX_decision_icon_eagle
-		available = {
-		}
-		fire_only_once = no
-		days_re_enable = 30	
-		visible = {
-			is_ai = no
-			check_variable = {
-				oro = 1
-			}
-			NOT = {
-				check_variable = {
-					faith_of_the_people > 100
-				}
-				check_variable = {
-					resistance > 100
-				}
-			}
-		}
-		cost = 5
-		complete_effect = {
-			custom_effect_tooltip = FFF_arm_the_crowd	
-		} 
-	}
-	construction_teams = {
-		icon = GFX_decision_icon_eagle
-		available = {
-		}
-		fire_only_once = no
-		days_re_enable = 30	
-		visible = {
-			ROOT = {
-				is_ai = no
-			}
-			check_variable = {
-				oro = 1
-			}
-			NOT = {
-				check_variable = {
-					faith_of_the_people > 100
-				}
-				check_variable = {
-					resistance > 100
-				}
-			}
-		}
-		cost = 5
-		complete_effect = {
-			custom_effect_tooltip = FFF_construction_teams
-		} 
-	}
-	blame_the_opposition = {
-		icon = GFX_decision_icon_eagle
-		available = {
-		}
-		fire_only_once = no
-		days_re_enable = 30	
-		visible = {
-			ROOT = {
-				is_ai = no
-			}
-			check_variable = {
-				oro = 1
-			}
-			NOT = {
-				check_variable = {
-					faith_of_the_people > 100
-					resistance > 100
-				}
-			}
-		}
-		cost = 5
-		complete_effect = {
-			custom_effect_tooltip = FFF_blame_the_opposition
 		}
 	}
 }
